@@ -1,4 +1,11 @@
-print("paito")
+console.log("paito")
 
-def soma(num1, num2):
+function soma(num1, num2) {
     return num1 + num2
+}
+
+function soma1(num) {
+    const hexaNumber = 0x9999
+    const octalNumber = 0o123
+    return num + 1
+}
