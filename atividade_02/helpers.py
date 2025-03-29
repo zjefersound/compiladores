@@ -11,10 +11,10 @@ hex_int_re = r'0[xX][0-9a-fA-F]+(_[0-9a-fA-F]+)*'
 hex_float_re = r'0[xX][0-9a-fA-F]+\.[0-9a-fA-F]*(p[+-]?\d+)?'
 
 # Decimal numbers (123, -45.67, 1.23e+10)
-decimal_re = r'\d+\.?\d*(?:[eE][+-]?\d+)?'
+decimal_re = r'[-+]?\d+\.?\d*(?:[eE][+-]?\d+)?'
 
 # Decimal numbers starting with . (.5, .67e-10)
-decimal_lead_dot_re = r'\.\d+(?:[eE][+-]?\d+)?'
+decimal_lead_dot_re = r'[-+]?\.\d+(?:[eE][+-]?\d+)?'
 
 number_core_re = fr'''
     -?  # Optional negative sign
