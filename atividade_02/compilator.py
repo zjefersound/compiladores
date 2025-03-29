@@ -3,7 +3,7 @@ import re
 from collections import defaultdict
 from helpers import non_quoted_js_numbers_regex
 from number_detector import get_radix
-from number_parser import parse_number_str_to_decimal
+from number_parser import parse_number_str_to_decimal, number_to_radix
 
 def read_file(file_path):
     try:
@@ -107,3 +107,23 @@ if word_occurrences:
 # Exercício 5
 number_occurrences = extract_number_occurrences(file_path)
 print(number_occurrences)
+
+# Convertendo todos os números encontrados para binário:
+binary_conversions = {}
+for num_str, data in number_occurrences.items():
+    decimal_value = data['decimal_value']
+    binary_value = number_to_radix(decimal_value, 2)
+    binary_conversions[num_str] = {
+        'original': num_str,
+        'decimal': decimal_value,
+        'binary': binary_value,
+        'lines': data['lines']
+    }
+
+print("Decimal to Binary Conversions:")
+print("=" * 40)
+for original, conversion in binary_conversions.items():
+    print(f"Original: {original:>6}")
+    print(f"Decimal: {conversion['decimal']:>7}")
+    print(f"Binario:  {conversion['binary']:>7}")
+    print("-" * 40)
