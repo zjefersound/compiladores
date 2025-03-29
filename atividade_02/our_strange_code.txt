@@ -1,4 +1,19 @@
-print("paito")
+console.log("paito")
 
-def soma(num1, num2):
+function soma(num1, num2) {
     return num1 + num2
+}
+
+function soma1(num) {
+    const hexaNumber = 0xF
+    const octalNumber = 0o123
+    return num + 1000
+}
+
+const hexaNumber = 0xF
+console.log(hexaNumber)
+// JS real: output seria 15
+// No nosso JS fake será: 0xf 
+
+console.log(soma(hexaNumber, 10))
+// esse output será de 25
