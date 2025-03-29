@@ -37,3 +37,22 @@ non_quoted_js_numbers_regex = fr'''
     ({number_core_re})       # Capture numbers
 '''
 
+def float_equal(a: str, b: str, precision: int = 10) -> bool:
+    """Compare two float strings with limited precision"""
+    if a == b:
+        return True
+    
+    a_int, _, a_frac = a.partition('.')
+    b_int, _, b_frac = b.partition('.')
+    
+    if a_int != b_int:
+        return False
+    
+    return a_frac[:precision] == b_frac[:precision]
+
+
+def digit_to_char(d: int) -> str:
+    """Convert digit (0-35) to corresponding character (0-9 then a-z)"""
+    if d < 10:
+        return str(d)
+    return chr(ord('a') + d - 10)
