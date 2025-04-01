@@ -56,3 +56,17 @@ def digit_to_char(d: int) -> str:
     if d < 10:
         return str(d)
     return chr(ord('a') + d - 10)
+
+
+def format_digits(number, min_digits=1):
+    num_str = str(number)
+
+    sign = ''
+    if num_str.startswith('-'):
+        sign = '-'
+        num_str = num_str[1:]
+    elif num_str.startswith('+'):
+        sign = '+'
+        num_str = num_str[1:]
+
+    return sign + num_str.zfill(max(min_digits, len(num_str)))
